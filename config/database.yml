@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: prueba
+  username: postgres
+  password: 123456
