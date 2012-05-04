@@ -1,10 +1,10 @@
-upstream unicorn {
+upstream unicorn_<%= application %> {
   server unix:/tmp/unicorn.<%= application %>.sock fail_timeout=0;
 }
 
 server {
-  listen 11000 default deferred;
-  server_name laguiax.local;
+  listen <%= puerto %> default deferred;
+  server_name <%= application %>;
   root <%= current_path %>/public;
 
   location ^~ /assets/ {
