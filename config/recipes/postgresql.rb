@@ -1,7 +1,7 @@
 set_default(:postgresql_host, "localhost")
-set_default(:postgresql_user) { 'servidor' }
+set_default(:postgresql_user, 'servidor')
 set_default(:postgresql_password) { Capistrano::CLI.password_prompt "PostgreSQL Password: " }
-set_default(:postgresql_database) { application }
+set_default(:postgresql_database, application)
 
 namespace :postgresql do
   desc "Install the latest stable release of PostgreSQL."
@@ -15,7 +15,7 @@ namespace :postgresql do
     run %Q{#{sudo} -u postgres psql -c "create user #{postgresql_user} with password '#{postgresql_password}';"}
     run %Q{#{sudo} -u postgres psql -c "create database #{postgresql_database} owner #{postgresql_user};"}
   end
-  after "deploy:setup", "postgresql:create_database"
+  #after "deploy:setup", "postgresql:create_database"
 
   desc "Generate the database.yml configuration file."
   task :setup, roles: :app do
