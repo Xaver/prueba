@@ -12,7 +12,6 @@ load "config/recipes/check"
 server "192.168.1.152", :web, :app, :db, primary: true
 
 set :application, "prueba"
-set :puerto, "10000"
 set :user, "servidor"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache

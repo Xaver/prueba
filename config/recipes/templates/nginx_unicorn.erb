@@ -3,8 +3,8 @@ upstream unicorn_<%= application %> {
 }
 
 server {
-  listen <%= puerto %>;
-  # server_name <%= application %>;
+  listen 80;
+  server_name <%= application %>.local;
   root <%= current_path %>/public;
 
   location ^~ /assets/ {
